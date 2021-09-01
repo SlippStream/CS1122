@@ -10,16 +10,21 @@ import java.util.Scanner;
  * @version 9/1/2021
  */
 public class Problem10 {
-    int d;
     public static void main(String[] args) {
+
+        int lineNumber = 1;
         try {
             File inFile = new File(args[0]);
             Scanner scan = new Scanner(inFile);
             while(scan.hasNextLine()) {
-
+                System.out.println(lineNumber + " " + scan.nextLine());
+                lineNumber++;
             }
+            scan.close();
         } catch(FileNotFoundException err) {
             System.err.println("INVALID FILE NAME");
+        } catch(ArrayIndexOutOfBoundsException err) {
+            System.err.println("NO ARGUMENT PROVIDED");
         }
     }
 }

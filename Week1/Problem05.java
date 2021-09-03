@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 /** 
  * @author Nick Zimanski
- * @Class CS 1122
- * @Lab L01-J
+ * @class CS 1122
+ * @lab L01-J
  * @version 9/1/2021
  */
 public class Problem05 {

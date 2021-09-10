@@ -1,4 +1,3 @@
-package Week2;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -21,6 +20,7 @@ public class FileStats {
             System.out.print("Enter a filename: ");
             String filename = userInput.nextLine();
             inFile = new File(filename);
+
             try(Scanner fileInput = new Scanner(inFile)) {
                 fileInput.useDelimiter("");
                 while (fileInput.hasNextLine()) {
@@ -41,6 +41,7 @@ public class FileStats {
             } catch (FileNotFoundException exc) {
                 System.err.println("File not found. Try Again.");
             }
+            
         } while( !inFile.exists() );
     }
 }

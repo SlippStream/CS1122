@@ -15,12 +15,12 @@ public class FileStats {
         String line;
         String[] tokenWords, tokenChars;
         int characters = 0, lines = 0, words = 0;
+        File inFile = null;
 
-        while(true) {
+        do {
             System.out.print("Enter a filename: ");
             String filename = userInput.nextLine();
-            File inFile = new File(filename);
-
+            inFile = new File(filename);
             try(Scanner fileInput = new Scanner(inFile)) {
                 fileInput.useDelimiter("");
                 while (fileInput.hasNextLine()) {
@@ -28,20 +28,19 @@ public class FileStats {
                     tokenWords = line.split(" ");
                     tokenChars = line.split("");
 
-                    characters += tokenChars.length + 1;
+                    characters += tokenChars.length;
                     words += tokenWords.length;
                     lines++;
                 }
-                if (characters > 0) characters--;
+                characters += lines - 1;
 
                 System.out.println("characters = " + characters);
                 System.out.println("words = " + words);
                 System.out.println("lines = " + lines);
                 System.out.println("file length = " + inFile.length());
-                break;
             } catch (FileNotFoundException exc) {
                 System.err.println("File not found. Try Again.");
             }
-        }
+        } while( !inFile.exists() );
     }
 }

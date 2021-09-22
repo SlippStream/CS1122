@@ -3,11 +3,14 @@ public class Test {
         GarbageFire gf = new GarbageFire();
         gf.GarbonzoBeans();
     }
+    protected void greg() {
+        System.out.println("hi");
+    }
 }
 
-class GarbageFire {
+class GarbageFire extends Test{
     public GarbageFire() {
-
+        greg();
     }
 
     public void GarbonzoBeans() {

@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 /**
  * @author Nick Zimanski
- * @version 24 September 2021
+ * @version 27 September 2021
  * @class CS1122
  * @lab L01-J
  */
-public class RockPaperScissorsGame {
+public class RockPaperScissorsGame_v2 {
     private final static String[] validThrows = {"Rock", "Paper", "Scissors"};
 
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class RockPaperScissorsGame {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.print("Would you like to play against opponent [1] or opponent [2]: ");
-        boolean isComputerDifficultyHard = keyboard.nextInt() == 1;
+        boolean isComputerDifficultyHard = keyboard.nextInt() == 2;
 
         do {
             System.out.print("Enter [r]ock, [p]aper, or [s]cissors (or [q]uit): ");
@@ -53,6 +53,10 @@ public class RockPaperScissorsGame {
             }
 
             //Either throws randomly or throws what would have lost to opponent's last throw
+            if (previousUserInput != null) {
+                System.out.println(indexOf(previousUserInput, validThrows));
+                System.out.println(validThrows[(indexOf(previousUserInput, validThrows) + 2) % validThrows.length]);
+            }
             throwResult = isComputerDifficultyHard
                     ? determineWinner(userInput, previousUserInput != null
                         ? validThrows[(indexOf(previousUserInput, validThrows) + 2) % validThrows.length]

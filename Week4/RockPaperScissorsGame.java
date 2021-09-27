@@ -56,8 +56,8 @@ public class RockPaperScissorsGame {
             throwResult = isComputerDifficultyHard
                     ? determineWinner(userInput, previousUserInput != null
                         ? validThrows[(indexOf(previousUserInput, validThrows) + 2) % validThrows.length]
-                        : determineComputerInput());
-                    : determineWinner(userInput, determineComputerInput())
+                        : determineComputerInput())
+                    : determineWinner(userInput, determineComputerInput());
             previousUserInput = userInput;
 
             switch (throwResult) {
